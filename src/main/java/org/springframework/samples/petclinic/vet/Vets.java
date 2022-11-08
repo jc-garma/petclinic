@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.vet;
 
+import org.springframework.samples.petclinic.vet.dto.Vet;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;

@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner;
+package org.springframework.samples.petclinic.owner.controller;
 
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.samples.petclinic.owner.dao.OwnerRepository;
+import org.springframework.samples.petclinic.owner.dto.Owner;
+import org.springframework.samples.petclinic.owner.service.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,10 +43,11 @@ class OwnerController {
 
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
-	private final OwnerRepository owners;
+	@Autowired
+	private final OwnerService ownerService;
 
-	public OwnerController(OwnerRepository clinicService) {
-		this.owners = clinicService;
+	public OwnerController(OwnerService ownerService) {
+		this.ownerService = ownerService;
 	}
 
 	@InitBinder
@@ -52,7 +57,7 @@ class OwnerController {
 
 	@ModelAttribute("owner")
 	public Owner findOwner(@PathVariable(name = "ownerId", required = false) Integer ownerId) {
-		return ownerId == null ? new Owner() : this.owners.findById(ownerId);
+		return ownerId == null ? new Owner() : this.ownerService.findById(ownerId);
 	}
 
 	@GetMapping("/owners/new")
@@ -68,7 +73,7 @@ class OwnerController {
 			return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 		}
 
-		this.owners.save(owner);
+		this.ownerService.save(owner);
 		return "redirect:/owners/" + owner.getId();
 	}
 
@@ -117,12 +122,12 @@ class OwnerController {
 	private Page<Owner> findPaginatedForOwnersLastName(int page, String lastname) {
 		int pageSize = 5;
 		Pageable pageable = PageRequest.of(page - 1, pageSize);
-		return owners.findByLastName(lastname, pageable);
+		return ownerService.findByLastName(lastname, pageable);
 	}
 
 	@GetMapping("/owners/{ownerId}/edit")
 	public String initUpdateOwnerForm(@PathVariable("ownerId") int ownerId, Model model) {
-		Owner owner = this.owners.findById(ownerId);
+		Owner owner = this.ownerService.findById(ownerId);
 		model.addAttribute(owner);
 		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 	}
@@ -135,7 +140,7 @@ class OwnerController {
 		}
 
 		owner.setId(ownerId);
-		this.owners.save(owner);
+		this.ownerService.save(owner);
 		return "redirect:/owners/{ownerId}";
 	}
 
@@ -146,9 +151,9 @@ class OwnerController {
 	 */
 	@GetMapping("/owners/{ownerId}")
 	public ModelAndView showOwner(@PathVariable("ownerId") int ownerId) {
-		
+
 		ModelAndView mav = new ModelAndView("owners/ownerDetails");
-		Owner owner = this.owners.findById(ownerId);
+		Owner owner = this.ownerService.findById(ownerId);
 		mav.addObject(owner);
 		return mav;
 	}
