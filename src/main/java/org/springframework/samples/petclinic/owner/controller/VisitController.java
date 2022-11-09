@@ -42,7 +42,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author Dave Syer
  */
 @Controller
-class VisitController {
+public class VisitController {
 
 	@Autowired
 	private final OwnerService ownerService;

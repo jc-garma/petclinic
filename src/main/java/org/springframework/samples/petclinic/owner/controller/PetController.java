@@ -19,8 +19,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.owner.PetValidator;
-import org.springframework.samples.petclinic.owner.dao.OwnerRepository;
+import org.springframework.samples.petclinic.owner.utilerias.PetValidator;
 import org.springframework.samples.petclinic.owner.dto.Owner;
 import org.springframework.samples.petclinic.owner.dto.Pet;
 import org.springframework.samples.petclinic.owner.dto.PetType;
@@ -44,7 +43,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/owners/{ownerId}")
-class PetController {
+public class PetController {
 
 	private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
 

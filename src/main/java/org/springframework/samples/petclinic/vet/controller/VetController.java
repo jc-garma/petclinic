@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.samples.petclinic.vet.Vets;
+import org.springframework.samples.petclinic.vet.utilerias.Vets;
 import org.springframework.samples.petclinic.vet.dto.Vet;
 import org.springframework.samples.petclinic.vet.service.VetService;
 import org.springframework.stereotype.Controller;
@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Arjen Poutsma
  */
 @Controller
-class VetController {
+public class VetController {
 
 	@Autowired
 	private final VetService vetService;
