@@ -19,7 +19,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.owner.utilerias.PetValidator;
+import org.springframework.samples.petclinic.owner.dto.PetValidator;
 import org.springframework.samples.petclinic.owner.dto.Owner;
 import org.springframework.samples.petclinic.owner.dto.Pet;
 import org.springframework.samples.petclinic.owner.dto.PetType;

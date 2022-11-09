@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.utilerias;
+package org.springframework.samples.petclinic.owner.dto;
 
 import org.springframework.samples.petclinic.owner.dto.Pet;
 import org.springframework.util.StringUtils;

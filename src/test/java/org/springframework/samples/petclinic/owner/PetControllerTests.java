@@ -29,7 +29,7 @@ import org.springframework.samples.petclinic.owner.dao.OwnerRepository;
 import org.springframework.samples.petclinic.owner.dto.Owner;
 import org.springframework.samples.petclinic.owner.dto.Pet;
 import org.springframework.samples.petclinic.owner.dto.PetType;
-import org.springframework.samples.petclinic.owner.utilerias.PetTypeFormatter;
+import org.springframework.samples.petclinic.owner.dto.PetTypeFormatter;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.given;

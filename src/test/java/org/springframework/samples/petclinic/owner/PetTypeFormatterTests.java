@@ -33,7 +33,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.samples.petclinic.owner.dao.OwnerRepository;
 import org.springframework.samples.petclinic.owner.dto.PetType;
-import org.springframework.samples.petclinic.owner.utilerias.PetTypeFormatter;
+import org.springframework.samples.petclinic.owner.dto.PetTypeFormatter;
 
 /**
  * Test class for {@link PetTypeFormatter}
