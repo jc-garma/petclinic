@@ -21,10 +21,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.samples.petclinic.owner.dao.OwnerRepository;
+import org.springframework.samples.petclinic.owner.dto.Visit;
 import org.springframework.samples.petclinic.vet.dto.Specialty;
 import org.springframework.samples.petclinic.vet.dao.SpecialtyRepository;
 import org.springframework.samples.petclinic.vet.dto.Vet;
 import org.springframework.samples.petclinic.vet.dao.VetRepository;
+import org.springframework.samples.petclinic.bill.dto.Bill;
+import org.springframework.samples.petclinic.bill.dao.BillRepository;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * PetClinic Spring Boot Application.
@@ -42,7 +49,7 @@ public class PetClinicApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demoVetRepository(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
+	public CommandLineRunner demoVetRepository(VetRepository vetRepository, SpecialtyRepository specialtyRepository, OwnerRepository ownerRepository, BillRepository billRepository) {
 		return (args) -> {
 			log.info("*****************************************************");
 			log.info("BOOTCAMP - Spring y Spring Data - vetRepository");
@@ -75,6 +82,25 @@ public class PetClinicApplication {
 			for (Vet v : vetRepository.findBySpecialityName("radiology")) {
 				log.info("Vet: " + v);
 			}
+
+			log.info("Creamos un objeto Bill sin fecha");
+			Bill bill = new Bill();
+			bill.setMoney(20.55);
+			bill.setPaymentDate(new Date());
+
+			billRepository.save(bill);
+
+			/*log.info("Creamos una objeto Visit con factura");
+			Visit visit = new Visit();
+			LocalDate date = LocalDate.parse("2022-11-08");
+			visit.setDate(date);
+			visit.setBill(bill);
+
+			bill.setVisit(visit);
+			billRepository.save(bill);
+			ownerRepository.save(visit);*/
+
+
 		};
 	}
 
