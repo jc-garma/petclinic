@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.controller;
+package org.springframework.samples.petclinic.pet.controller;
 
 import java.util.Collection;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.owner.dto.PetValidator;
+import org.springframework.samples.petclinic.pet.validator.PetValidator;
 import org.springframework.samples.petclinic.owner.dto.Owner;
-import org.springframework.samples.petclinic.owner.dto.Pet;
-import org.springframework.samples.petclinic.owner.dto.PetType;
+import org.springframework.samples.petclinic.pet.dto.Pet;
+import org.springframework.samples.petclinic.pet.dto.PetType;
 import org.springframework.samples.petclinic.owner.service.OwnerService;
+import org.springframework.samples.petclinic.pet.service.PetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -47,10 +47,14 @@ public class PetController {
 
 	private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
 
-	@Autowired
 	private final OwnerService ownerService;
 
-	public PetController(OwnerService ownerService) { this.ownerService = ownerService; }
+	private final PetService petService;
+
+	public PetController(OwnerService ownerService, PetService petService) {
+		this.ownerService = ownerService;
+		this.petService = petService;
+	}
 
 	@ModelAttribute("types")
 	public Collection<PetType> populatePetTypes() { return this.ownerService.findPetTypes(); }

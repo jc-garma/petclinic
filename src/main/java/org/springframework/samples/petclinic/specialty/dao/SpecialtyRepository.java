@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.vet.dao;
+package org.springframework.samples.petclinic.specialty.dao;
 
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
@@ -21,7 +21,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.samples.petclinic.vet.dto.Specialty;
+import org.springframework.samples.petclinic.specialty.dto.Specialty;
 import org.springframework.samples.petclinic.vet.dto.Vet;
 import org.springframework.transaction.annotation.Transactional;
 

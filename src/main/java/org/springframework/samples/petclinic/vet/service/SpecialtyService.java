@@ -3,8 +3,8 @@ package org.springframework.samples.petclinic.vet.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.samples.petclinic.vet.dao.SpecialtyRepository;
-import org.springframework.samples.petclinic.vet.dto.Specialty;
+import org.springframework.samples.petclinic.specialty.dao.SpecialtyRepository;
+import org.springframework.samples.petclinic.specialty.dto.Specialty;
 import org.springframework.samples.petclinic.vet.dto.Vet;
 import org.springframework.stereotype.Service;
 

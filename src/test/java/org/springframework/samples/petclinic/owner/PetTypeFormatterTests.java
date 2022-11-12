@@ -32,8 +32,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.samples.petclinic.owner.dao.OwnerRepository;
-import org.springframework.samples.petclinic.owner.dto.PetType;
-import org.springframework.samples.petclinic.owner.dto.PetTypeFormatter;
+import org.springframework.samples.petclinic.pet.dto.PetType;
+import org.springframework.samples.petclinic.pet.service.PetTypeFormatter;
 
 /**
  * Test class for {@link PetTypeFormatter}

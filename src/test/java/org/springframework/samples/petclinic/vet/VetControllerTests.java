@@ -27,7 +27,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.samples.petclinic.vet.controller.VetController;
 import org.springframework.samples.petclinic.vet.dao.VetRepository;
-import org.springframework.samples.petclinic.vet.dto.Specialty;
+import org.springframework.samples.petclinic.specialty.dto.Specialty;
 import org.springframework.samples.petclinic.vet.dto.Vet;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;

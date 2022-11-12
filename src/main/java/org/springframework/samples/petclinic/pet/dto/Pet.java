@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.dto;
+package org.springframework.samples.petclinic.pet.dto;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -32,6 +32,7 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.samples.petclinic.model.NamedEntity;
+import org.springframework.samples.petclinic.visit.dto.Visit;
 
 /**
  * Simple business object representing a pet.

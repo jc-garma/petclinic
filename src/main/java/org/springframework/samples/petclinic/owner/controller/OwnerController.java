@@ -44,11 +44,7 @@ public class OwnerController {
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
 
 	@Autowired
-	private final OwnerService ownerService;
-
-	public OwnerController(OwnerService ownerService) {
-		this.ownerService = ownerService;
-	}
+	private OwnerService ownerService;
 
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {

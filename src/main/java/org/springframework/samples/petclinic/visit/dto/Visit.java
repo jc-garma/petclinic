@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.samples.petclinic.owner.dto;
+package org.springframework.samples.petclinic.visit.dto;
 
 import java.time.LocalDate;
 
@@ -41,9 +41,8 @@ public class Visit extends BaseEntity {
 	@NotEmpty
 	private String description;
 
-	/*@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="bill_id")
-	private Bill bill;*/
+	@OneToOne(mappedBy = "visit")
+	private Bill bill;
 
 	/**
 	 * Creates a new instance of Visit for the current date
@@ -68,11 +67,8 @@ public class Visit extends BaseEntity {
 		this.description = description;
 	}
 
-	/*public Bill getBill() {
-		return bill;
-	}
+	public Bill getBill() { return bill; }
 
-	public void setBill(Bill bill) {
-		this.bill = bill;
-	}*/
+	public void setBill(Bill bill) { this.bill = bill; }
+
 }
